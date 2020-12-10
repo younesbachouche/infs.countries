@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>YS World countries Infos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body>
+
+  <main>
+
+    <nav>
+
+      <div class="country-search">
+        <input type="text" placeholder="Search country" autocomplete="off" v-model="search">
+      </div>
+
+      <div class="country-list">
+
+        <div class="country" v-for="country in countries" @click="selectCountry(country)">
+          <img :src="getFlagSrc(country)">
+          {{ getName(country) }}
+        </div>
+
+      </div>
+
+    </nav>
+
+    <section :style="{ 'background-image': 'url(' + selectedFlagSrc + ')' }">
+
+      <div class="card-container">
+        <div class="card">
+
+          <div class="card-title">
+            <img :src="selectedFlagSrc">
+            {{ selectedName }}
+          </div>
+
+          <div class="card-body">
+            <div><strong>Code: </strong>{{ selectedCode }}</div>
+            <div><strong>Capital: </strong>{{ selectedCapital }}</div>
+            <div><strong>Region: </strong>{{ selectedSubregion }}</div>
+            <!--<div><strong>Timezone: </strong>{{ selectedTimezone }}</div>-->
+            <div><strong>Language: </strong>{{ selectedLanguage }}</div>
+            <div><strong>Population: </strong>{{ selectedPopulation }}</div>
+            <div><strong>Area: </strong>{{ selectedArea }}</div>
+            <div><strong>Currency: </strong>{{ selectedCurrency }}</div>
+            <div><strong>World Bank Gini: </strong>{{ selectedGini }}</div>
+            <div><strong>Lat Long: </strong><a :href="selectedLatlngUrl" target="_blank">{{ selectedLatlng }}</a></div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    Made with <span>❤</span> by <a href="http://worldcountriesinf.c1.biz/" target="_blank">Younes Bachouche</a>
+  </footer>
+
+</body>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
