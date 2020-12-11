@@ -43,6 +43,11 @@ var vm = new Vue({
         }
       });
 
+      countries.filter(function(country) {
+       return country.name != "israel"
+      }
+      )
+
       // Filter search by country name in all languages
       countries = countries.filter(function(value, index, array) {
         return value['name'].toLowerCase().includes(self.search.toLowerCase())
